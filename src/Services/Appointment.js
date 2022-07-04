@@ -19,7 +19,7 @@ http.interceptors.request.use(config => {
 //http.interceptors.response.use()
 
 const getAppointment = () => {
-    return http.get('api/trainers');
+    return http.get('api/patient');
 }
 const updateAppointmentId = id =>{
     return http.get('api/patient/'+id);
