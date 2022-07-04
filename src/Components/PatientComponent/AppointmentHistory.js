@@ -3,11 +3,31 @@ import React, { Component } from 'react';
 class AppointmentHistory extends Component {
   render() {
     return (
-        <div className='justify-content-start'>
-          <div className='card mx-auto mt-5' style={{width: "75%"}} >
-            <h1>Appointment History</h1>
-          </div>
-        </div>
+      <div> 
+      <div className='card mx-auto mt-5 text-uppercase' style={{width: "50%"}} >
+      <h5 className='p-3'>History Of Appointments</h5>
+      <table className='table-responsive{-sm|-md|-lg|-xl} '>
+        <thead>
+          <tr>
+            <th>s.no</th>
+            <th>Category</th>
+            <th>Department</th>
+            <th>Doctor Name</th>
+            <th>Appointment Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>general</td>
+            <td>Neurology</td>
+            <td>Navaneethan</td>
+            <td>Mar 17 2022</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
     );
   }
 }
