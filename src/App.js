@@ -1,10 +1,10 @@
 import './App.css';
-import AddAppointment  from './Components/AddAppointment';
+import HeaderDashboard from './Components/PatientComponent/HeaderDashboard';
 
 function App() {
   return (
     <div className="App">
-      <AddAppointment />
+      <HeaderDashboard />
     </div>
   );
 }
