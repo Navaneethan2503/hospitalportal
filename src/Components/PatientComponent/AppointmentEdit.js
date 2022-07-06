@@ -1,10 +1,63 @@
 import React, { Component } from 'react';
-import calendar from '../../Images/calendar.png';
-import remove from '../../Images/delete.png';
-
+import { appointment, doctorUser, appUser} from '../../Data';
+import { Link } from 'react-router-dom';
+import AppointmentService from '../../Services/Appointment';
 
 class AppointmentEdit extends Component {
+  constructor(){
+    super();
+    this.state = {
+      appointments: [],
+      doctorUsers : [],
+      user : []
+    };
+  }
+
+  componentDidMount(){
+    AppointmentService.getAppointment()
+      .then(res => {
+        this.setState({appointments: res.data });
+      })
+      .catch(res => {});
+    this.setState({ doctorUsers: doctorUser, user: appUser });
+  }
+
+  filterAppointments(){
+    let userId = this.state.user.map(a => a.Id);
+    let filteredAppointments = this.state.appointments.filter((appointment) => appointment.patientId.toString().includes(userId.toString()));
+    return filteredAppointments;
+  }
+
+  getDoctorName(DId){
+    let name = this.state.doctorUsers.filter((doctor) => doctor.Id.toString().includes(DId)).map((a => a.Firstname));
+    return name[0];
+  } 
+
+  componentDidUpdate(){
+    AppointmentService.getAppointment()
+      .then(res => {
+        this.setState({appointments: res.data });
+      })
+      .catch(res => {});
+  }
+
+  handleDelete(event){
+    event.preventDefault();
+    const result = window.confirm('Are you sure you want to delete : '+ event.target.value);
+    if(result){
+        //props.onProductDelete(props.prod.id);
+        AppointmentService.removeAppointment(event.target.value)
+           .then(res => {
+             alert("deleted Successfully");
+            })
+           .catch(res => {alert("Something Went Wrong")});
+    }
+}
+
   render() {
+    //console.log(this.state.appointments);
+    let filteredAppointments = this.filterAppointments();
+    let i=1;
     return (
         <div> 
           <div className='card mx-auto mt-5 text-uppercase' style={{width: "50%"}} >
@@ -21,14 +74,16 @@ class AppointmentEdit extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Neurology</td>
-                <td>Navaneethan</td>
-                <td>Mar 17 2022</td>
-                <td><button type="button" class="btn btn-warning">Edit</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-              </tr>
+              {
+                filteredAppointments.map((ap) => <tr key={ap.id}>
+                  <td>{i++}</td>
+                  <td>{ap.departmentName}</td>
+                  <td>{this.getDoctorName(ap.doctorId)}</td>
+                  <td>{new Date(ap.dateOfAppointment).toLocaleString('en-IN', {day: 'numeric',year: 'numeric', month: 'long'})}</td>
+                  <td><button type="button" class="btn btn-warning"><Link to={'/EditAppointment/'+ap.id} className='btn'>Edit</Link></button></td>
+                  <td><button type="button" class="btn btn-danger" value={ap.id} onClick={this.handleDelete.bind(this)}>Delete</button></td>
+                </tr>)
+              }
             </tbody>
           </table>
           </div>

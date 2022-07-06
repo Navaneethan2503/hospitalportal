@@ -3,7 +3,7 @@ import axios from "axios";
 
 const http = axios.create({
     headers: { 'content-type': 'application/json', 'Authorization': '' },
-    baseURL: 'http://localhost:35246' //35246 //5000
+    baseURL: 'http://localhost:5000' //35246 //5000
 });
 
 /** 
@@ -19,17 +19,17 @@ http.interceptors.request.use(config => {
 //http.interceptors.response.use()
 
 const getAppointment = () => {
-    return http.get('api/patient');
+    return http.get('api/Appointment/AppointmentHistory');
 }
-const updateAppointmentId = id =>{
-    return http.get('api/patient/'+id);
+const updateAppointment = (id,dateObj) =>{
+    return http.put('api/Appointment/ResheduleAppointment/'+id, dateObj);
 }
 const removeAppointment = (appointmentId) => {
-    return http.delete(`api/patient/${appointmentId}`);
+    return http.delete('api/Appointment/DeleteAppointment/'+appointmentId);
 }
 const addNewAppointment = appointmentObj => {
-    return http.post('api/patient', appointmentObj);
+    return http.post('api/Appointment/CreateAppointment', appointmentObj);
 }
 
-let PatientService = { getAppointment, updateAppointmentId, removeAppointment, addNewAppointment };
+let PatientService = { getAppointment, updateAppointment, removeAppointment, addNewAppointment };
 export default PatientService;
