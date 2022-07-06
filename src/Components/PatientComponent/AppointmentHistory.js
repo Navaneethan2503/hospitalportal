@@ -1,7 +1,46 @@
 import React, { Component } from 'react';
+import {appointment, department, doctorUser, appUser} from '../../Data';
+import AppointmentService from '../../Services/Appointment';
 
 class AppointmentHistory extends Component {
+  constructor(){
+    super();
+    this.state = {
+      appointments: [],
+      departments: [],
+      doctorUsers : [],
+      user : []
+    };
+  }
+
+  componentDidMount(){
+    AppointmentService.getAppointment()
+        .then(res => {
+          //this.setState({appointments: res.data});
+        }).catch(res => {});
+    this.setState({ appointments: appointment, departments: department, doctorUsers: doctorUser, user: appUser });
+  }
+
+  filterAppointments(){
+    let userId = this.state.user.map(a => a.Id);
+    let filteredAppointments = this.state.appointments.filter((appointment) => appointment.patientId.toString().includes(userId.toString()));
+    return filteredAppointments;
+  }
+
+  getDoctorName(DId){
+    let name = this.state.doctorUsers.filter((doctor) => doctor.Id.toString().includes(DId)).map((a => a.Firstname));
+    return name[0];
+  } 
+
+  getCategoryName(departname){
+    let category = this.state.departments.filter((department) => department.DepartmentName.includes(departname)).map((a => a.Category));
+    return category[0];
+  }
+
   render() {
+    //console.log(this.state.appointments);
+    let filteredAppointments = this.filterAppointments();
+    let i = 1;
     return (
       <div> 
       <div className='card mx-auto mt-5 text-uppercase' style={{width: "50%"}} >
@@ -17,13 +56,13 @@ class AppointmentHistory extends Component {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>general</td>
-            <td>Neurology</td>
-            <td>Navaneethan</td>
-            <td>Mar 17 2022</td>
-          </tr>
+        {filteredAppointments.map(ap => <tr key={ap.Id}>
+              <td>{i++}</td>
+              <td>{this.getCategoryName(ap.DepartmentName)}</td>
+              <td>{ap.DepartmentName}</td>
+              <td>{this.getDoctorName(ap.doctorId)}</td>
+              <td>{new Date(ap.DateOfAppointment).toLocaleString('en-IN', {day: 'numeric',year: 'numeric', month: 'long',}) }</td>
+                    </tr>)}
         </tbody>
       </table>
       </div>

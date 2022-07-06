@@ -6,7 +6,8 @@ import AccountIcon from '../../Images/account_circle.png';
 import ProfilePatient from './ProfilePatient';
 import BookAppointment from './BookAppointment';
 import AppointmentEdit from './AppointmentEdit';
-import MyAppointment from './MyAppointment';
+import EditAppointment from './EditAppointment';
+
 
 class HeaderDashboard extends Component{
     render(){
@@ -22,7 +23,6 @@ class HeaderDashboard extends Component{
                             <li className='nav-item'><Link to={'/bookAppointment'} className="nav-link">Book Appointment </Link></li>
                             <li className='nav-item'><Link to={'/AppointmentEdit'} className="nav-link"> Appointment Change</Link></li>
                             <li className='nav-item'><Link to={'/Appointment'} className="nav-link"> Appointment History </Link></li>
-                            <li className='nav-item'><Link to={'/MyAppointment'} className="nav-link">My Appointment </Link></li>
                             <li className='nav-item'><Link to={'/ProfilePatient'} className="nav-link"> <img className='img-fluid' src={AccountIcon} width="30" height="30" alt="" /> </Link></li>
                         </ul>
                     </nav>
@@ -32,7 +32,7 @@ class HeaderDashboard extends Component{
                         <Route path='/ProfilePatient' element={<ProfilePatient />} />
                         <Route path='/bookAppointment' element={<BookAppointment />} />
                         <Route path='/AppointmentEdit' element={<AppointmentEdit />} />
-                        <Route path='/MyAppointment' element={<MyAppointment />} />
+                        <Route path='/EditAppointment/:Id' element={<EditAppointment />} />
                     </Routes>
                 </div>
             </Router>
