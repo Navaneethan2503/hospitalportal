@@ -1,36 +1,16 @@
 import React, { Component } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 class Registration extends Component {
-
-    handleSubmit (event) {
-        event.preventDefault();
-
-    let input = {};
-    input["password"] = "";
-    
-    }
-    validate(){
-        let input = this.state.input;
-        let isValid = true;
-        let errors = {};
-
-        if (typeof input["password"] !== "undefined" && typeof input["confirmpassword"] !== "undefined") {
-          
-            if (input["password"] != input["confirmpassword"]) {
-              isValid = false;
-              errors["password"] = "Passwords don't match.";
-            }
-        }
-    }
-
     render() {
     return (
         <div>
           <div className='card mx-auto mt-5 justify-content-center' style={{width: "50%"}} >
-          <div className='row'>
-              <div className='col-12'>
-                  <h4 className='p-5'><b>Registration</b></h4>
-                  <form class="needs-validation" novalidate >
+                  <h4 className='p-5'>
+                        <b>Registration</b>
+                 </h4>
+                  <form method="post" class="needs-validation" noValidate >
                       
                   <div className='form-group row m-3'>
                           <label className="col-sm-2 col-form-label col-form-label-sm" ><b>First Name</b></label>
@@ -66,7 +46,7 @@ class Registration extends Component {
 
 
                   <div className='form-group row m-3'>
-                          <label for="dateOfBirth" class="col-sm-2 col-form-label col-form-label-sm" ><b>Date of Birth</b></label>
+                          <label htmlFor="dateOfBirth" class="col-sm-2 col-form-label col-form-label-sm" ><b>Date of Birth</b></label>
                           <div className='col-sm-6'>
                               <input type="date" className="form-control form-control-sm" id='dateOfBirth' name='dateOfBirth' required />
                               <div class="invalid-feedback"> Please Provide Date of Birth </div>
@@ -75,7 +55,7 @@ class Registration extends Component {
 
 
                  <div className='form-group row m-3'>
-                          <label for="age" class="col-sm-2 col-form-label col-form-label-sm" ><b>Age</b></label>
+                          <label htmlFor="age" class="col-sm-2 col-form-label col-form-label-sm" ><b>Age</b></label>
                           <div className='col-sm-6'>
                               <input type="number" class="form-control form-control-sm" id="name" placeholder="Enter age" required/>
                               <div class="invalid-feedback"> Please enter age </div>
@@ -84,7 +64,7 @@ class Registration extends Component {
 
 
                 <div className='form-group row m-3'>
-                          <label for="address" class="col-sm-2 col-form-label col-form-label-sm" ><b>Address</b></label>
+                          <label htmlFor="address" class="col-sm-2 col-form-label col-form-label-sm" ><b>Address</b></label>
                           <div className='col-sm-6'>
                               <input type="text" class="form-control form-control-sm" id="name" placeholder="Enter address" required/>
                               <div class="invalid-feedback"> Please enter address </div>
@@ -115,7 +95,8 @@ class Registration extends Component {
                                     </div>
                                     </div>
 
-                <div className='form-group row m-3'>
+
+                                    <div className='form-group row m-3'>
                           <label for="education" class="col-sm-2 col-form-label col-form-label-sm" ><b>Education</b></label>
                           <div className='col-sm-6'>
                               <input type="text" class="form-control form-control-sm" id="name" placeholder="Education" required/>
@@ -140,6 +121,7 @@ class Registration extends Component {
                               <div class="invalid-feedback"> Please enter specializationInDepartment </div>
                           </div>
                 </div>
+
 
                 <div className='form-group row m-3'>
                           <label for="emailid" className="col-sm-2 col-form-label col-form-label-sm" ><b>Email Id</b></label>
@@ -178,17 +160,14 @@ class Registration extends Component {
 
 
                 <button className="btn btn-dark m-5" type="submit" onSubmit={this.handleSubmit} style={{backgroundColor:'#70718D'}}>Register</button>
-
                   <p> Already Registered? </p>
                   <p><span className='line'><a href='./'><b>Click here to Login </b></a></span></p>
 
                       </form>
                       </div>
                       </div>
-                      </div>
-                      </div>
     );
 }
 }
 
-export default Registration ;
+export default Registration;
