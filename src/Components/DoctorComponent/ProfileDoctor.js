@@ -14,19 +14,19 @@ class ProfileDoctor extends Component{
                             <th>Age</th>
                             <th>Phone Number</th>
                             <th>Email Id</th>
-                            <th>Details</th>
+                            <th>Experience</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>003</td>
-                            <td>Sandy</td>
-                            <td>Female</td>
-                            <td>40</td>
-                            <td>9874563210</td>
-                            <td>sandy03@gmail.com</td>
-                            <td>Genere surgeon 14 years of experience</td>
+                            <td>{this.props.appUser.id}</td>
+                            <td>{this.props.appUser.firstName},{this.props.appUser.lastName}</td>
+                            <td>{this.props.appUser.gender}</td>
+                            <td>{this.props.appUser.age}</td>
+                            <td>{this.props.appUser.phoneNumber}</td>
+                            <td>{this.props.appUser.email}</td>
+                            <td>{this.props.appUser.experience}</td>
                         </tr>
                     </tbody>
                     

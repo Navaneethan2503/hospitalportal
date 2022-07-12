@@ -3,10 +3,9 @@ import axios from "axios";
 
 const http = axios.create({
     headers: { 'content-type': 'application/json', 'Authorization': '' },
-    baseURL: 'http://localhost:5000' //35246 //5000
+    baseURL: 'http://localhost:4300' //35246 //5000
 });
 
-/** 
 
 http.interceptors.request.use(config => {
     const token = window.localStorage.getItem('apitoken');
@@ -15,8 +14,6 @@ http.interceptors.request.use(config => {
 }, error => {
     Promise.reject(error);
 });
-*/
-//http.interceptors.response.use()
 
 const getAppointment = () => {
     return http.get('api/Appointment/AppointmentHistory');

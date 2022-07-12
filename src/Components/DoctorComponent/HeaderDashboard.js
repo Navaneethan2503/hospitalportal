@@ -14,7 +14,7 @@ class HeaderDashboard extends Component {
                 <div className='text-uppercase'>
                     <nav className='navbar navbar-expand-lg navbar-collapse bg-light navbar-expand{-sm|-md|-lg|-xl} justify-content-between'>
                     <nav class="navbar navbar-light">
-                            <span class="navbar-brand mb-0 h1">hospital management system</span>
+                            <span className="navbar-brand mb-0 h1">hospital management system</span>
                         </nav>
                         <ul className="nav" >
                             <li className='nav-item'><Link to={'/'} className="nav-link"> Dashboard </Link></li>

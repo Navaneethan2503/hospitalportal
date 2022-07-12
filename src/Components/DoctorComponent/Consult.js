@@ -1,9 +1,9 @@
 import { useEffect , useState } from 'react';
-import {appointment, patientUser, appDoctor} from '../../Data';
+import { appDoctor} from '../../Data';
 import { useParams, Link} from 'react-router-dom';
 import DoctorService from '../../Services/Doctor';
 
-function Consult(){
+function Consult(props){
     const {Id} = useParams();
     const [report , setReport] = useState({
         patientId: "",
@@ -15,17 +15,16 @@ function Consult(){
     });
 
     useEffect(() => {
-        let doctorId = appDoctor.map(s => s.Id);
         setReport({
             patientId: Id,
-            doctorId: doctorId[0]
+            doctorId: appDoctor.map( m => m.Id)
         });
     }, []);
 
 
     const handleChange = (ev) => {
-        let doctorId = appDoctor.map(m => m.Id);
-        setReport({...report, doctorId: doctorId});
+        
+        setReport({...report, doctorId: appDoctor.map( m => m.Id)});
         let {name ,value } = ev.target;
         setReport({...report, [name]:value});
     }
@@ -34,12 +33,13 @@ function Consult(){
         event.preventDefault();
         const reportObj = {
             patientId: parseInt(report.patientId),
-            doctorID: report.doctorId,
+            doctorID: report.doctorId[0],
             diagnosis: report.Diagnosis,
             treatment: report.Treatment,
             prescription: report.Prescription,
             problem: report.Problem
         };
+        console.log(reportObj);
         
         DoctorService.addReport(reportObj)
            .then(res => {
