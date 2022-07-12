@@ -16,14 +16,15 @@ class AppointmentHistory extends Component {
   componentDidMount(){
     AppointmentService.getAppointment()
         .then(res => {
-          //this.setState({appointments: res.data});
+          this.setState({appointments: res.data});
         }).catch(res => {});
-    this.setState({ appointments: appointment, departments: department, doctorUsers: doctorUser, user: appUser });
+    this.setState({ departments: department, doctorUsers: doctorUser, user: appUser });
   }
+  
 
   filterAppointments(){
-    let userId = this.state.user.map(a => a.Id);
-    let filteredAppointments = this.state.appointments.filter((appointment) => appointment.patientId.toString().includes(userId.toString()));
+    let patientId = this.state.user.map(m => m.Id);
+    let filteredAppointments = this.state.appointments.filter((appointment) => appointment.patientId.toString().includes(patientId.toString()));
     return filteredAppointments;
   }
 
@@ -38,7 +39,6 @@ class AppointmentHistory extends Component {
   }
 
   render() {
-    //console.log(this.state.appointments);
     let filteredAppointments = this.filterAppointments();
     let i = 1;
     return (
@@ -58,8 +58,8 @@ class AppointmentHistory extends Component {
         <tbody>
         {filteredAppointments.map(ap => <tr key={ap.Id}>
               <td>{i++}</td>
-              <td>{this.getCategoryName(ap.DepartmentName)}</td>
-              <td>{ap.DepartmentName}</td>
+              <td>{this.getCategoryName(ap.departmentName)}</td>
+              <td>{ap.departmentName}</td>
               <td>{this.getDoctorName(ap.doctorId)}</td>
               <td>{new Date(ap.DateOfAppointment).toLocaleString('en-IN', {day: 'numeric',year: 'numeric', month: 'long',}) }</td>
                     </tr>)}

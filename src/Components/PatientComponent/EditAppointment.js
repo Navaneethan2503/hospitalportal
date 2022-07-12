@@ -1,5 +1,4 @@
-import {useParams, Link} from 'react-router-dom';
-import { appointment} from '../../Data';
+import {useParams, Link, useNavigate} from 'react-router-dom';
 import { useEffect , useState } from 'react';
 import AppointmentService from '../../Services/Appointment';
 
@@ -21,7 +20,7 @@ function EditAppointment(props) {
            .catch(res => {});
     }, []);
 
-    
+    const nav = useNavigate();
 
     const handleChange = (ev) => {
         let {value } = ev.target;
@@ -38,7 +37,8 @@ function EditAppointment(props) {
             .catch(res => {
                 alert("Something went Wrong");
             });
-        console.log(dateObj);
+        //console.log(dateObj);
+        nav('/AppointmentEdit');
         //return <Link to={'/AppointmentEdit'} ></Link>
     }
 

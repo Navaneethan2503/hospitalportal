@@ -35,7 +35,7 @@ class HeaderDashboard extends Component{
                         <Route path='/EditAppointment/:Id' element={<EditAppointment />} />
                     </Routes>
                 </div>
-            </Router>
+            </Router> 
         );
     }
 }

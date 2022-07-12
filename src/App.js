@@ -1,11 +1,16 @@
 import './App.css';
-//import HeaderDashboard from './Components/PatientComponent/HeaderDashboard';
-import HeaderDashboard from './Components/DoctorComponent/HeaderDashboard';
+import Main from './Components/Main';
+import {BrowserRouter as Router} from 'react-router-dom';
+import HeaderDashboard from './Components/PatientComponent/HeaderDashboard';
+//import HeaderDashboard from './Components/DoctorComponent/HeaderDashboard';
 
 function App() {
   return (
     <div className="App">
-      <HeaderDashboard />
+      <Router>
+        <Main />
+      </Router>
+      
     </div>
   );
 }

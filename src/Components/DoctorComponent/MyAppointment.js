@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {appointment, patientUser, appDoctor} from '../../Data';
+import {appointment, patientUser , appDoctor} from '../../Data';
 import {Link } from 'react-router-dom';
 
 class MyAppointment extends Component {
