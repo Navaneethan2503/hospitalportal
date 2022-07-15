@@ -18,6 +18,7 @@ const Header = props => {
                         <ul className="nav" >
                             {props.isLoggedIn === false &&
                             <li className='nav-item'><Link to={'/'} className="nav-link"> Login </Link></li>
+<<<<<<< Updated upstream
                             }
                             <li className='nav-item'><Link to={'/Dashboard'} className="nav-link"> Dashboard </Link></li>
                             <li className='nav-item'><Link to={'/Registration'} className="nav-link">Registration </Link></li>
@@ -26,6 +27,10 @@ const Header = props => {
                             }
                             
                         </ul>
+=======
+                            <li className='nav-item'><Link to={'/Registration'} className="nav-link">Registration </Link></li>
+                        </ul> 
+>>>>>>> Stashed changes
                     </nav>
                     </div>
         );

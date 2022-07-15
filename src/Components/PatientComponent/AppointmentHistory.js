@@ -37,9 +37,11 @@ class AppointmentHistory extends Component {
     return category[0];
   }
 
+
   render() {
     //console.log(this.state.appointments);
     let filteredAppointments = this.filterAppointments();
+    
     let i = 1;
     return (
       <div> 
@@ -61,7 +63,7 @@ class AppointmentHistory extends Component {
               <td>{this.getCategoryName(ap.DepartmentName)}</td>
               <td>{ap.DepartmentName}</td>
               <td>{this.getDoctorName(ap.doctorId)}</td>
-              <td>{new Date(ap.DateOfAppointment).toLocaleString('en-IN', {day: 'numeric',year: 'numeric', month: 'long',}) }</td>
+              <td>{new Date(ap.dateOfAppointment).toLocaleString('en-IN', {day: 'numeric',year: 'numeric', month: 'long'})}</td>
                     </tr>)}
         </tbody>
       </table>

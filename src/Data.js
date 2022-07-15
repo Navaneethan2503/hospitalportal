@@ -1,6 +1,16 @@
+<<<<<<< Updated upstream
 export var appUser = [{Id: 101, Firstname: "Navaneethan", Lastname: "S" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" }];
+=======
+export var appUser = [{Id: 101, Firstname: "Ravi", Lastname: "Teja" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" }];
 
-export var doctorUser = [{Id: 1001, Firstname: "Neha", Lastname: "Vjayakumar" , Gender: "Female", Age: "24" , Phonenumber: "9045277243" , Address : "Kanyakumari" , DateOfBirth: "12-05-2001", Email: "neha@gmail.com" , Username : "neha12", Password : "Neha@25" , Education: "MBBS" , Experience: "2" , SpecificationInDepartment: "Plastic surgery" },
+export var patientUser = [{Id: 101, Firstname: "Ravi", Lastname: "Teja" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" },
+                          {Id: 102, Firstname: "Ranjini", Lastname: "Kanth" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" },
+                          {Id: 103, Firstname: "Navaneethan", Lastname: "S" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" }];
+
+export var appDoctor = [{Id: 1001, Firstname: "Nikita", Lastname: "Kokate" , Gender: "Female", Age: "24" , Phonenumber: "9045277243" , Address : "Kanyakumari" , DateOfBirth: "12-05-2001", Email: "neha@gmail.com" , Username : "neha12", Password : "Neha@25" , Education: "MBBS" , Experience: "2" , SpecificationInDepartment: "Plastic surgery" }];
+>>>>>>> Stashed changes
+
+export var doctorUser = [{Id: 1001, Firstname: "Nikita", Lastname: "Kokate" , Gender: "Female", Age: "24" , Phonenumber: "9045277243" , Address : "Kanyakumari" , DateOfBirth: "12-05-2001", Email: "neha@gmail.com" , Username : "neha12", Password : "Neha@25" , Education: "MBBS" , Experience: "2" , SpecificationInDepartment: "Plastic surgery" },
                   {Id: 1002, Firstname: "Kalpana", Lastname: "Sekar" , Gender: "Female", Age: "45" , Phonenumber: "9786277243" , Address : "Patchur" , DateOfBirth: "15-06-1985", Email: "kalpanasekar@gmail.com" , Username : "kalpana15", Password : "Kalpana@25" , Education: "MBBS" , Experience: "25" , SpecificationInDepartment: "Dental" },
                   {Id: 1003, Firstname: "Rahul Kanh", Lastname: "Bedgi" , Gender: "Male", Age: "27" , Phonenumber: "9047852789" , Address : "chennai" , DateOfBirth: "02-02-1993", Email: "nickil@gmail.com" , Username : "rahul02", Password : "Rahul@25", Education: "MBBS" , Experience: "4" , SpecificationInDepartment: "Orthopaedics" },
                   {Id: 1004, Firstname: "Shalman", Lastname: "Khan" , Gender: "Male", Age: "33" , Phonenumber: "9654377243" , Address : "New Delhi" , DateOfBirth: "01-01-1988", Email: "shalman@gmail.com" , Username : "shalman01", Password : "shalman@25", Education: "MBBS" , Experience: "12" , SpecificationInDepartment: "neurology" },
@@ -13,7 +23,7 @@ export var appointment = [{Id: 1, patientId: 101 , doctorId: 1001, DepartmentNam
                    {Id: 2, patientId: 102 , doctorId: 1002, DepartmentName : "Dental", DateOfAppointment: "2022-05-11T10:14:00.522"  },
                    {Id: 3, patientId: 101 , doctorId: 1003, DepartmentName : "Orthopaedics", DateOfAppointment: "2022-05-25T10:14:00.522"  },
                    {Id: 4, patientId: 103 , doctorId: 1004, DepartmentName : "neurology", DateOfAppointment: "2022-06-01T10:14:00.522"  },
-                   {Id: 5, patientId: 104 , doctorId: 1001, DepartmentName : "Plastic surgery", DateOfAppointment: "2022-06-15T10:14:00.522"  },
+                   {Id: 5, patientId: 102 , doctorId: 1001, DepartmentName : "Plastic surgery", DateOfAppointment: "2022-06-15T10:14:00.522"  },
                    {Id: 6, patientId: 101 , doctorId: 1005, DepartmentName : "Paediatrics", DateOfAppointment: "2022-06-22T10:14:00.522"  },
                    {Id: 7, patientId: 105 , doctorId: 1003, DepartmentName : "Orthopaedics", DateOfAppointment: "2022-07-01T10:14:00.522"  }
                   ];
