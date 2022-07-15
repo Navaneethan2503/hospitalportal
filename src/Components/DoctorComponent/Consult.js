@@ -33,6 +33,7 @@ function Consult(props){
         event.preventDefault();
         const reportObj = {
             patientId: parseInt(report.patientId),
+            doctorID: report.doctorId[1],
             doctorID: report.doctorId[0],
             diagnosis: report.Diagnosis,
             treatment: report.Treatment,

@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 
 class ProfileDoctor extends Component{
+    constructor(props){
+        super(props);
+    }
     render(){
         return(
             <div className='card mx-auto mt-5' style={{width: "75%"}}>

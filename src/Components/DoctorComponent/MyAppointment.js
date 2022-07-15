@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {appointment, patientUser , appDoctor} from '../../Data';
 import {Link } from 'react-router-dom';
+import AppointmentService from '../../Services/Appointment';
 
 class MyAppointment extends Component {
   constructor(){
@@ -13,6 +14,7 @@ class MyAppointment extends Component {
   }
 
   componentDidMount(){
+    this.setState({ appointments : appointment , appDoctors: appDoctor, patientUsers : patientUser } );
     this.setState({appointments: appointment, appDoctors: appDoctor, patientUsers : patientUser } );
   }
 
@@ -30,6 +32,7 @@ class MyAppointment extends Component {
 
   render() {
     let filterAppointments = this.filterAppointments();
+    console.log(filterAppointments);
     let i = 1;
     return (
         <div>
