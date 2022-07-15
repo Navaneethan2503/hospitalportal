@@ -15,6 +15,7 @@ class MyAppointment extends Component {
 
   componentDidMount(){
     this.setState({ appointments : appointment , appDoctors: appDoctor, patientUsers : patientUser } );
+    this.setState({appointments: appointment, appDoctors: appDoctor, patientUsers : patientUser } );
   }
 
   getPatientName(Id){

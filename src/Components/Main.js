@@ -23,9 +23,10 @@ import AdminProfile from './AdminComponent/AdminProfile';
 
 function Main(){
     const [userDetails, setUserDetails] = useState({
-        user: [],
-        isLoggedIn: false
-      });
+    user: [],
+    user: appUser,
+    isLoggedIn: false
+  });
 
     const nav = useNavigate();
 
@@ -40,14 +41,18 @@ function Main(){
           else {
             nav('/DoctorDashboard');
           }
-         
+
+          alert("Loged In");
+          if(userDetails.user.role === "Patient" ){
+            nav('/PatientDashboard');
+          }
+          else{
+            nav('/DoctorDashboard');
+          }
         }).catch(obj => {
           alert(obj.response.statusText);
         });
       }
-
-      
-
     const handleLogout = () => {
         const obj = {
           user: [],
@@ -83,6 +88,16 @@ function Main(){
                             <Route path='/AdminProfile' element={<AdminProfile />} />                  
                             <Route path='/DepartmentList' element={<DepartmentList />} /> 
                             <Route path='/AddDepartment' element={<CreateDepartment/>} />
+                            <Route path='/PatientDashboard' element={<DashboardPatient  />} />
+                            <Route path='/Appointment' element={<AppointmentPatient  />} />
+                            <Route path='/ProfilePatient' element={<ProfilePatient  />} />
+                            <Route path='/bookAppointment' element={<BookAppointment  />} />
+                            <Route path='/AppointmentEdit' element={<AppointmentEdit  />} />
+                            <Route path='/EditAppointment/:Id' element={<EditAppointment />} />
+                            <Route path='/DoctorDashboard' element={<DashboardDoctor  />} />
+                            <Route path='/ProfileDoctor' element={<ProfileDoctor  />} />           
+                            <Route path='/MyAppointment' element={<MyAppointment />} />                     
+                            <Route path='/consult/:Id' element={<ConsultForm  /> } />
                         </Routes>
                     </div>
                 </div>

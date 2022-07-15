@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { department, doctorUser, appUser} from '../../Data';
 import AppointmentService from '../../Services/Appointment';
+import {useNavigate} from 'react-router-dom';
 
 class BookAppointment extends Component {
     constructor(){
@@ -41,6 +42,8 @@ class BookAppointment extends Component {
         this.setState({[name]:value});
     }
 
+    
+
     submitHandler(event){
         event.preventDefault();
         const newAppointment = {
@@ -63,6 +66,7 @@ class BookAppointment extends Component {
             doctorName: "",
             dateOfAppointment: ""
         });
+        
     }
 
   render() {

@@ -1,14 +1,19 @@
-<<<<<<< Updated upstream
 export var appUser = [{Id: 101, Firstname: "Navaneethan", Lastname: "S" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" }];
-=======
+
 export var appUser = [{Id: 101, Firstname: "Ravi", Lastname: "Teja" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" }];
+
+export var appUser = [{Id: 101, Firstname: "Ravi", Lastname: "Teja" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" }];
+
+export var patientUser = [{Id: 101, Firstname: "Navaneethan", Lastname: "S" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" },
+                          {Id: 102, Firstname: "Navaneethan", Lastname: "S" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" }];
+
+export var appDoctor = [{Id: 1001, Firstname: "Nikita", Lastname: "Kokate" , Gender: "Female", Age: "24" , Phonenumber: "9045277243" , Address : "Kanyakumari" , DateOfBirth: "12-05-2001", Email: "neha@gmail.com" , Username : "neha12", Password : "Neha@25" , Education: "MBBS" , Experience: "2" , SpecificationInDepartment: "Plastic surgery" }];
 
 export var patientUser = [{Id: 101, Firstname: "Ravi", Lastname: "Teja" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" },
                           {Id: 102, Firstname: "Ranjini", Lastname: "Kanth" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" },
                           {Id: 103, Firstname: "Navaneethan", Lastname: "S" , Gender: "Male", Age: "21" , Phonenumber: "9047277243" , Address : "Patchur" , DateOfBirth: "25-03-2000", Email: "nickilsekar@gmail.com" , Username : "navaneethan25", Password : "Nickil@25" }];
 
 export var appDoctor = [{Id: 1001, Firstname: "Nikita", Lastname: "Kokate" , Gender: "Female", Age: "24" , Phonenumber: "9045277243" , Address : "Kanyakumari" , DateOfBirth: "12-05-2001", Email: "neha@gmail.com" , Username : "neha12", Password : "Neha@25" , Education: "MBBS" , Experience: "2" , SpecificationInDepartment: "Plastic surgery" }];
->>>>>>> Stashed changes
 
 export var doctorUser = [{Id: 1001, Firstname: "Nikita", Lastname: "Kokate" , Gender: "Female", Age: "24" , Phonenumber: "9045277243" , Address : "Kanyakumari" , DateOfBirth: "12-05-2001", Email: "neha@gmail.com" , Username : "neha12", Password : "Neha@25" , Education: "MBBS" , Experience: "2" , SpecificationInDepartment: "Plastic surgery" },
                   {Id: 1002, Firstname: "Kalpana", Lastname: "Sekar" , Gender: "Female", Age: "45" , Phonenumber: "9786277243" , Address : "Patchur" , DateOfBirth: "15-06-1985", Email: "kalpanasekar@gmail.com" , Username : "kalpana15", Password : "Kalpana@25" , Education: "MBBS" , Experience: "25" , SpecificationInDepartment: "Dental" },
