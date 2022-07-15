@@ -72,8 +72,7 @@ class Registration extends Component {
             role: ""
         });
     }
-
-
+    
     render() {
     return (
         <div>
@@ -162,8 +161,7 @@ class Registration extends Component {
                                     </div>
                                     </div>
                                     </div>
-
-
+                                    
                 {
                     this.state.role === 'Doctor' && <>
                     <div className='form-group row m-3'>
@@ -193,6 +191,7 @@ class Registration extends Component {
                 </div>
                     </>
                 }                    
+
 
 
                 <div className='form-group row m-3'>
@@ -229,9 +228,7 @@ class Registration extends Component {
                               <div class="invalid-feedback"> Please enter confirm password </div>
                           </div>
                 </div>
-
-
-                <button className="btn btn-primary m-5" type="submit" style={{backgroundColor:'#70718D'}}>Register</button>
+                <button className="btn btn-dark m-5" type="submit" onSubmit={this.handleSubmit} style={{backgroundColor:'#70718D'}}>Register</button>
                   <p> Already Registered? </p>
                   <p><span className='line'><a href='./'><b>Click here to Login </b></a></span></p>
 
