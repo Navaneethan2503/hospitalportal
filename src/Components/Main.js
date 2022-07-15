@@ -3,6 +3,7 @@ import {useState} from 'react';
 import NavBar from "./AuthenticationComponent/NavBar";
 import LoginService from '../Services/Auth';
 import Login from './AuthenticationComponent/Login';
+import Registration from './AuthenticationComponent/Registration';
 import DashboardPatient from './PatientComponent/DashboardPatient';
 import AppointmentPatient from './PatientComponent/AppointmentHistory';
 import ProfilePatient from './PatientComponent/ProfilePatient';
@@ -14,12 +15,18 @@ import ProfileDoctor from './DoctorComponent/ProfileDoctor';
 import MyAppointment from './DoctorComponent/MyAppointment';
 import ConsultForm from './DoctorComponent/Consult';
 import {appUser} from '../Data';
+import AdminDashboard  from './AdminComponent/AdminDashboard';
+import CreateDepartment from './AdminComponent/AddDepartment';
+import DepartmentList from './AdminComponent/DepartmentList';
+import consultantDetails from './AdminComponent/consultantDetails';
+import AdminProfile from './AdminComponent/AdminProfile';
 
 function Main(){
     const [userDetails, setUserDetails] = useState({
-        user: appUser,
-        isLoggedIn: false
-      });
+    user: [],
+    user: appUser,
+    isLoggedIn: false
+  });
 
     const nav = useNavigate();
 
@@ -27,6 +34,14 @@ function Main(){
         LoginService.doLogin(credentials).then(obj => {
           setUserDetails({ user: obj.data, isLoggedIn: true });
           window.localStorage.setItem('apitoken', obj.data.token);
+          alert("Logged In");
+          if(userDetails.user.role === "Patient" ){
+            nav('/PatientDashboard');
+          }
+          else {
+            nav('/DoctorDashboard');
+          }
+
           alert("Loged In");
           if(userDetails.user.role === "Patient" ){
             nav('/PatientDashboard');
@@ -38,7 +53,6 @@ function Main(){
           alert(obj.response.statusText);
         });
       }
-
     const handleLogout = () => {
         const obj = {
           user: [],
@@ -59,6 +73,21 @@ function Main(){
                     <div className='col-12'>
                         <Routes>
                             <Route exact path='/' element={<Login handleLogin={handleLogin} />} />
+                            <Route path='/Registration' element={<Registration />} />
+                            <Route path='/PatientDashboard' element={<DashboardPatient loggedUser = {userDetails} />} />
+                            <Route path='/Appointment' element={<AppointmentPatient loggedUser = {userDetails}  />} />
+                            <Route path='/ProfilePatient' element={<ProfilePatient  loggedUser = {userDetails.user} />} />
+                            <Route path='/bookAppointment' element={<BookAppointment loggedUser = {userDetails}  />} />
+                            <Route path='/AppointmentEdit' element={<AppointmentEdit loggedUser = {userDetails}  />} />
+                            <Route path='/EditAppointment/:Id' element={<EditAppointment loggedUser = {userDetails} />} />
+                            <Route path='/DoctorDashboard' element={<DashboardDoctor loggedUser = {userDetails.user}  />} />
+                            <Route path='/ProfileDoctor' element={<ProfileDoctor loggedUser = {userDetails.user}  />} />           
+                            <Route path='/MyAppointment' element={<MyAppointment />} />                     
+                            <Route path='/consult/:Id' element={<ConsultForm  /> } />
+                            <Route path='/AdminDashboard' element={<AdminDashboard /> } />
+                            <Route path='/AdminProfile' element={<AdminProfile />} />                  
+                            <Route path='/DepartmentList' element={<DepartmentList />} /> 
+                            <Route path='/AddDepartment' element={<CreateDepartment/>} />
                             <Route path='/PatientDashboard' element={<DashboardPatient  />} />
                             <Route path='/Appointment' element={<AppointmentPatient  />} />
                             <Route path='/ProfilePatient' element={<ProfilePatient  />} />

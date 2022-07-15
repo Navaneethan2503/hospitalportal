@@ -3,6 +3,8 @@ import axios from "axios";
 
 const http = axios.create({
     headers: { 'content-type': 'application/json', 'Authorization': '' },
+    baseURL: 'http://localhost:5000' //35246 //5000
+    baseURL: 'http://localhost:35246' //35246 //5000
     baseURL: 'http://localhost:4300' //35246 //5000
 });
 

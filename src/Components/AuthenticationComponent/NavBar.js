@@ -13,6 +13,10 @@ const NavBar = props => {
         <ul className="nav" >
             
              {props.isLoggedIn === false &&
+            <>
+            <li className='nav-item'><Link to={'/'} className="nav-link"> Login </Link></li>
+            <li className='nav-item'><Link to={'/Registration'} className="nav-link"> Register </Link></li>
+            </>
             <li className='nav-item'><Link to={'/'} className="nav-link"> Login </Link></li>
             }
              
@@ -41,6 +45,19 @@ const NavBar = props => {
                                 <Link to='/MyAppointment' className='nav-link'>Appointment</Link>
                             </li>
                             <li className='nav-item'><Link to={'/ProfileDoctor'} className="nav-link"> <img className='img-fluid' src={AccountIcon} width="30" height="30" alt="" /> </Link></li>
+                        </>
+            }
+            {props.role === 'Admin' &&
+                        <><li className="nav-item">
+                            <Link to='/AdminDashboard' className='nav-link'>Dashboard</Link>
+                        </li>
+                            <li className="nav-item">
+                                <Link to='/AddDepartment' className='nav-link'>Create Department</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to='/DepartmentList' className='nav-link'>Department Details</Link>
+                            </li>
+                            <li className='nav-item'><Link to={'/AdminProfile'} className="nav-link"> <img className='img-fluid' src={AccountIcon} width="30" height="30" alt="" /> </Link></li>
                         </>
             }
             {props.isLoggedIn === true &&

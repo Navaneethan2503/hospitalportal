@@ -32,7 +32,18 @@ const Header = props => {
                         <span class="navbar-brand mb-0 h1">hospital management system</span>
                         </nav>
                         <ul className="nav" >
+                            {props.isLoggedIn === false &&
                             <li className='nav-item'><Link to={'/'} className="nav-link"> Login </Link></li>
+                            }
+                            <li className='nav-item'><Link to={'/Dashboard'} className="nav-link"> Dashboard </Link></li>
+                            <li className='nav-item'><Link to={'/Registration'} className="nav-link">Registration </Link></li>
+                            {props.isLoggedIn === true &&
+                               <li className='nav-item'><Link to={'/logout'} className="nav-link" onClick={onLogout}> Logout </Link></li>
+                            }
+                            
+                        </ul>
+                            <li className='nav-item'><Link to={'/Registration'} className="nav-link">Registration </Link></li>
+                        </ul> 
                             <li className='nav-item'><Link to={'/'} className="nav-link">Registration </Link></li>
                         </ul> 
                     </nav>

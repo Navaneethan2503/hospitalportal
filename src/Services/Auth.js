@@ -1,6 +1,7 @@
 import axios from 'axios';
 const http = axios.create({
     headers: { 'content-type': 'application/json' },
+    baseURL: 'http://localhost:56760'
     baseURL: 'http://localhost:4200'
 });
 
@@ -16,5 +17,10 @@ const doLogin = loginCredentails => {
     return http.post('/api/Signin', loginCredentails);
 }
 
+const doRegister = SignupCredentials => {
+    return http.post('/api/Signup', SignupCredentials);
+}
+
+let LoginService = {doLogin , doRegister};
 let LoginService = {doLogin};
 export default LoginService;

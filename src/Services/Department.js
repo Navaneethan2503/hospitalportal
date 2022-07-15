@@ -2,6 +2,7 @@ import axios from "axios";
 
 const http = axios.create({
     headers: { 'content-type': 'application/json', 'Authorization': '' },
+    baseURL: 'http://localhost:22832/' //22832 //5000
     baseURL: 'http://localhost:4500/' //22832 //5000
 });
 
